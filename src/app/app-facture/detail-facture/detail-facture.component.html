@@ -1,0 +1,99 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+<div  id="facture"  class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 padding">
+    <div class="card">
+        <div class="card-header p-4">
+            <a class="pt-2 d-inline-block" href="index.html" data-abc="true">TunisiaMall.com</a>
+            <div class="float-right">
+                <h3 class="mb-0">Invoice #{{facture.idFacture}}</h3>
+                Date: {{date}}
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row mb-4">
+                <div class="col-sm-6">
+                    <h5 class="mb-3">From:</h5>
+                    <h3 class="text-dark mb-1">Tunisia Mall</h3>
+                    <div>1, 2 rue André Ampère </div>
+                    <div>2083 - Pôle Technologique - El Ghazala.</div>
+                    <div>Email: adam.elamri@esprit.tn</div>
+                    <div>Phone: +216 90 250 993</div>
+                </div>
+                <div class="col-sm-6 ">
+                    <h5 class="mb-3">To:</h5>
+                    <h3 class="text-dark mb-1">{{facture.user.nom}} {{facture.user.prenom}}</h3>
+                    <div>{{this.facture.user.adresse}}</div>
+                    <!-- <div>Chandni chowk, New delhi, 110006</div> -->
+                    <div>Email: {{facture.user.email}}</div>
+                    <div>Phone: +216 {{facture.user.phoneNumber}}</div>
+                </div>
+            </div>
+            <div class="table-responsive-sm">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="center">#</th>
+                            <th>Item</th>
+                            <th>Description</th>
+                            <th class="right">Price</th>
+                            <th class="center">Qty</th>
+                            <th class="right">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let df of facture.detailFacture  ; let i = index" >
+                            <td class="center">{{i}}</td>
+                            <td class="left strong">{{df.produit.libelle}}</td>
+                            <td class="left">{{df.produit.description}}</td>
+                            <td class="right">${{df.produit.prixUnitaire}}</td>
+                            <td class="center">{{df.qte}}</td>
+                            <td class="right">${{df.prixTotal}}</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-5">
+                </div>
+                <div class="col-lg-4 col-sm-5 ml-auto">
+                    <table class="table table-clear">
+                        <tbody>
+                            <tr>
+                                <td >
+                                    <strong class="text-dark">Subtotal</strong>
+                                </td>
+                                <td >${{facture.montantFacture}}</td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    <strong class="text-dark">Discount ({{ ((facture.montantRemise/facture.montantFacture)*100)  | number:'1.2-2'  }}%)</strong>
+                                </td>
+                                <td class="right">${{facture.montantRemise}}</td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    <strong class="text-dark">TVA (15%)</strong>
+                                </td>
+                                <td >${{((facture.montantFacture -facture.montantRemise )*15)/100}}</td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    <strong class="text-dark">Total</strong> </td>
+                                <td >
+                                    <strong class="text-dark">${{ ((facture.montantFacture -facture.montantRemise )*85)/100 }}</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer bg-white">
+            <p class="mb-0">1, 2 rue André Ampère - 2083 - Pôle Technologique - El Ghazala.</p>
+        </div>
+    </div>
+</div>
+
+<div class="btn-group-lg text-center mb-2" role="group" >
+    <button (click)="generatePDF()"  type="button" class="btn btn-primary" >Download Facture</button>
+</div>

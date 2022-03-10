@@ -1,0 +1,63 @@
+
+
+
+<div class="container mt-5 px-2">
+    <div class="mb-2 d-flex justify-content-between align-items-center">
+      <button class="btn btn-success" (click)="AddStock()">Add Stock</button>
+    
+
+    
+  </div>
+  <div class="search-provider col-md-4 ">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" 
+    autocomplete="off" placeholder="&#61442;  Taper pour chercher..">
+  </div>
+<br>
+
+    <div class="table-responsive">
+      <table class="table table-responsive table-striped table-hover table-bordered">
+        <thead>
+        <tr class="bg-light">
+          <th scope="col" width="5%">Logo</th>
+          <th scope="col" >Id Stock</th>
+          <th scope="col" >Name</th>
+          <th scope="col" >Quantité</th>
+          <th scope="col" >Quantité Min</th>
+          
+          <th scope="col"  >Libelle</th>
+          <th scope="col"  >Date</th>
+        
+          <th scope="col" >delete</th>
+          <th scope="col"  >Update</th>
+          <th scope="col"  >view more</th>
+          <th scope="col"  >List product</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let stock of ListStock |filter:searchText">
+          <td><img class="img-fluid" src="{{stock.logo}}"></td>
+          <td>{{stock.id}}</td>
+          <td>{{stock.name}}</td>
+          <td>{{stock.qte}}</td>
+          <td>{{stock.qteMin}}</td>
+      
+          <td>{{stock.libelleStock}}</td>
+          <td>{{stock.date}}</td>
+          
+          <td><button class="btn btn-danger" (click)="delete(stock)">Delete</button></td>
+          <td><button class="btn btn-success" (click)="update(stock)">Update</button></td>
+          <td><a class="btn btn-warning" [routerLink]="['/stock',stock.id]" >view More</a></td>
+          <td><a class="btn btn-danger" [routerLink]="['/stock-ref',stock.ref]" >List Product</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  
+
+
+
+    
+  </div>
+  
+  
+  

@@ -1,0 +1,52 @@
+<!--<p>test</p>
+<div *ngFor="let user of listOfUsers">
+  <p>{{user.role}}</p>
+</div>-->
+
+<div  *ngIf="listOfUsers.length!=0" class="ms-4">
+  <div class="row">
+  <div class="col-10"><h2 class="text-start text-gray">{{role}}</h2></div>
+    <div class="col-2"><button class="btn btn-info " *ngIf="role=='Admin Users'" [routerLink]="['/add-user','add-admin']"> Add Admin User</button></div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-11"><input class="form-control" type="text" name="search" [(ngModel)]="searchText"
+                              autocomplete="on"  placeholder="search by anything you want" ></div>
+  </div>
+  <table class="table table-responsive  table-hover ">
+    <thead>
+    <tr class="bg-light">
+      <th scope="col" style="width:5%;">picture</th>
+      <th scope="col" >id</th>
+      <th scope="col" >First Name</th>
+      <th scope="col" >Last Name</th>
+      <th scope="col" >Birthdate</th>
+      <th scope="col" >Category</th>
+      <th scope="col"  >Job</th>
+      <th scope="col"  *ngIf="role=='Simple Users'">Status</th>
+      <th scope="col" >delete</th>
+      <th scope="col"  >Update</th>
+      <th scope="col"  >view more</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of listOfUsers|filter:searchText">
+      <td><i class="bi bi-person-circle" style="color: blue" *ngIf="user.role[0].role=='ADMIN'"></i>
+        <i class="bi bi-person-check-fill" style="color: green" *ngIf="user.role[0].role=='SIMPLE'"></i>
+        <i class="bi bi-person-x-fill " style="color: red" *ngIf="user.role[0].role=='BLOCKED'"></i></td>
+      <td>{{user.idUser}}</td>
+      <td>{{user.nom}}</td>
+      <td>{{user.prenom}}</td>
+      <td>{{user.dateNaissance}}</td>
+      <td>{{user.categorieUser}}</td>
+      <td>{{user.profession}}</td>
+      <td *ngIf="role=='Simple Users'">
+        <button class="btn btn-primary" *ngIf="user.role[0].role!='BLOCKED'" (click)="Block_UnBlock(user,'BLOCKED')"><i class="bi bi-unlock-fill"></i> Block</button>
+        <button class="btn  bg-orange" *ngIf="user.role[0].role=='BLOCKED'" (click)="Block_UnBlock(user,'SIMPLE')"><i class="bi bi-lock-fill"></i> UnBlock</button>
+      </td>
+      <td><button class="btn btn-danger" (click)="delete(user)">Delete</button></td>
+      <td><button class="btn btn-success" [routerLink]="['/update-user',user.idUser]" [disabled]="user.role[0].role=='SIMPLE'||user.role[0].role=='BLOCKED'">Update</button></td>
+      <td><a class="btn btn-warning" [routerLink]="['/user',user.idUser]" >view More</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

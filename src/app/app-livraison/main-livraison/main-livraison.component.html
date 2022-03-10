@@ -1,0 +1,50 @@
+
+<div class="container mt-5 px-2">
+  <div class="mb-2">
+  </div>
+  <div class="search-livreur">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" 
+    autocomplete="off" placeholder="&#61442;  Taper pour chercher..">
+  </div>
+  <div class="table-responsive">
+    <table class="table table-responsive table-striped table-hover table-bordered">
+      <thead>
+      <tr class="bg-light">
+        <th scope="col" >Id livraison</th>
+        <th scope="col" >Date de livraison</th>
+        <th scope="col" >Adresse de livraison</th>
+        <th scope="col" >Statut de la livraison</th>
+        <th scope="col" >delete</th>
+        <th scope="col"  >view more</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let livraison of Livraison | filter: searchText">
+        <td>{{livraison.id}}</td>
+        <td>{{livraison.dateLivraisonDate}}</td>
+        <td>{{livraison.adresseLvr}}</td>
+          <td *ngIf="!livraison.status ">
+            <span>
+            <i class="bg-warning">En cours</i> 
+          </span>
+        </td>
+        <td *ngIf="livraison.status==1">
+          <span>
+            <i class="bg-success">Deliveé</i> 
+          </span>         
+         </td>
+        <td><button class="btn btn-danger" (click)="delete(livraison)" >Delete</button></td>
+        <td><a class="btn btn-warning"  >view More </a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <div class="divChart">
+    <canvas id="myChart" width="100px" height="100vh">
+    </canvas>
+  </div>
+
+</div>
+
+

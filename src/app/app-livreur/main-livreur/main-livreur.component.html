@@ -1,0 +1,18 @@
+
+<div class="container mt-5 px-2">
+  <div class="mb-2">
+    <button class="btn btn-success" [routerLink]="['/add-livreur']" >Ajouter livreur</button>
+    <button class="btn btn-info" [routerLink]="['/recruter']" >Recrutements</button>
+    
+  </div>
+ 
+
+  <div class="table-responsive">
+    <app-child-livreur [listLivreur]="listLivreur"
+                       (deleteEvent)="delete($event)"
+                       (updateEvent)="update($event)"></app-child-livreur>
+  </div>
+
+</div>
+  
+                  

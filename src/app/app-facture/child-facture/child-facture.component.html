@@ -1,0 +1,38 @@
+
+ <div class="search-livreur">
+  <input class="form-control" type="text" name="search" [(ngModel)]="searchText" 
+  autocomplete="off" placeholder="&#61442;  Taper pour chercher..">
+</div>
+ <table class="table mb-0 text-nowrap" >
+    <thead>
+      <tr >
+        <th scope="col" class="border-0" style="font-weight: bold" >Id facture</th>
+        <th scope="col" class="border-0" style="font-weight: bold"> Montant Remise</th>
+        <th scope="col" class="border-0" style="font-weight: bold" >Montant Facture</th>
+        <th scope="col" class="border-0" style="font-weight: bold" >Date Facture</th>
+        <th scope="col" class="border-0" style="font-weight: bold" >Status</th>
+        <th scope="col" class="border-0" style="font-weight: bold" >Action</th>
+      </tr>
+    </thead>
+    <tbody>
+       <tr *ngFor="let facture of listFacture | filter: searchText " >
+        <td class="border-top-0">{{facture.idFacture}}</td>
+        <td class="border-top-0">{{facture.montantRemise}}</td>
+        <td class="border-top-0">{{facture.montantFacture}}</td>
+        <td class="border-top-0">{{facture.dateFacture}}</td>
+          <td class="border-top-0" > 
+                                    <label class="switch" >
+                                      <input type="checkbox" [(ngModel)]="facture.active" (change)="checkValue(facture,facture.active ? 'A':'B')" >
+                                      <span class="slider round"></span>
+                                    </label>
+                                            </td>
+  
+        <td class="align-middle border-top-0">
+          <button class="btn btn-danger btn-sm" (click)="deleteFacture(facture)" style="font-weight: bold;color: aliceblue;">Delete</button>
+          <button [routerLink]="['/update-facture',facture.idFacture]" class="btn btn-success btn-sm"  style="font-weight: bold;color: aliceblue;">Update</button>
+          <button  [routerLink]="['/liste-facture',facture.idFacture]"  class="btn btn-info btn-sm" style="font-weight: bold;color: aliceblue;" >Details</button>
+        </td>
+  
+    </tbody>
+  </table>
+  

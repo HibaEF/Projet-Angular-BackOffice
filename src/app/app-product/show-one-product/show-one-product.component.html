@@ -1,0 +1,84 @@
+
+
+<div class="page-content page-container" id="page-content">
+  <div class="">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+        <button class="btn btn-outline-primary" (click)="fixProduct()">Go back</button>
+        <!--<div class="card user-card-full">
+          <div class="row m-l-0 m-r-0">
+            <div class="col-sm-4 bg-c-lite-green user-profile">
+              <div class="card-block text-center text-white">
+                <div class="m-b-25"> <img src="{{product.picture}}" width="40%" class="img-radius" alt="User-Profile-Image"> </div>
+                <h6 class="f-w-600">{{product.libelle}}</h6>
+              &lt;!&ndash;  <p>{{product.quantite}}</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+              &ndash;&gt;</div>
+            </div>
+            <div class="col-sm-8">
+              <div class="card-block">
+                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                <div class="row">
+                  <div class="col-sm-8">
+                    <p class="m-b-10 f-w-600">Category</p>
+                    <h6 class="text-muted f-w-400">{{product.detailproduit}}</h6>
+                  </div>
+                  <div class="col-sm-8">
+                    <p class="m-b-10 f-w-600">Price</p>
+                    <h6 class="text-muted f-w-400">{{product.prixUnitaire}}</h6>
+                  </div>
+                  <div class="col-sm-8">
+                    <p class="m-b-10 f-w-600">Description</p>
+                    <h6 class="text-muted f-w-400">{{product.description}}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<section class="py-5">
+  <div class="container px-4 px-lg-5 my-5">
+    <div class="row gx-4 gx-lg-5 align-items-center">
+      <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0"  alt="..."  src="{{product.picture}}"/></div>
+      <div class="col-md-6">
+
+        <h1 class="display-5 fw-bolder text-uppercase">{{product.libelle}}</h1>
+        <h2 class="display-5">{{product.code}}</h2>
+
+        <!--<div class="product-brand">{{product.detailproduit.CategorieProduit}}</div>-->
+
+        <div class="fs-5 mb-5">
+          <div class="pricingTable">
+
+            <span class="product-price">{{product.prixUnitaire | currency :'USD':true}}</span>
+
+          </div>
+
+        </div>
+        <p class="text-primary">Like: {{product.nbrLike}}</p>
+        <p class="lead">{{product.description}}</p>
+
+      <!--  <div class=" aaaa d-flex">
+
+          <input class="product-cart-button button button-primary button-large" id="inputQuantity" type="number" value="1" style="max-width: 3rem" />
+
+          <button class="btn btn-outline-dark flex-shrink-0" type="button">
+            <i class="bi-cart-fill me-1"></i>
+            Add to cart
+          </button>
+        </div>-->
+      </div>
+    </div>
+  </div>
+
+</section>

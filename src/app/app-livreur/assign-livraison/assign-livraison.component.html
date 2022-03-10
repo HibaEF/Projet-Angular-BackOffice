@@ -1,0 +1,41 @@
+<div class="container"><div class=" text-center mt-5 ">
+<h2> Attribuer une livraison au livreur n°: {{id}}</h2>
+</div>
+  <div class="row ">
+    <div class="col-lg-7 mx-auto">
+      <div class="card mt-2 mx-auto p-4 bg-light">
+        <div class="card-body bg-light">
+          <div class="container">
+          <form class="form-card" #f="ngForm">
+            <div class="row justify-content-between text-left">
+              
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3">Date de livraison<span class="text-danger"> *</span></label>
+                <input type="date" name="ldate" min="2021-01-01" max="2030-12-31" id="ldate" class="form-control" [(ngModel)]="livraison.dateLivraisonDate" required minlength="3"  #ld="ngModel">
+                <div class="alert alert-danger" *ngIf="ld.invalid && ld.touched">
+                  <div *ngIf="ld.hasError('required')"> Date is a required field</div>
+                </div>
+              </div>
+             
+              
+              <div class="form-group col-sm-6 flex-column d-flex">
+                <label class="form-control-label px-3">Adresse de la livraison<span class="text-danger"> *</span></label>
+                <input type="text" name="add"  id="add" class="form-control" [(ngModel)]="livraison.adresseLvr" required minlength="3"  #add="ngModel">
+                <div class="alert alert-danger" *ngIf="add.invalid && add.touched">
+                  <div *ngIf="add.hasError('required')"> Adresse is a required field</div>
+                  <div *ngIf="add.hasError('minlength')"> Adresse minlength ies equal to 3</div>
+
+                </div>
+              </div>
+              
+            </div>
+   
+              <div class="row justify-content-end">
+              <div class="form-group col-auto"> <button  class="btn-primary" (click)="f.reset()">Reset</button> </div>
+              <div class="form-group col-auto"> <button type="submit" class="btn-primary" (click)="save()"  [disabled]="f.invalid">Register</button> </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> 

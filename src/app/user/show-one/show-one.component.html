@@ -1,0 +1,52 @@
+
+
+<div class="page-content page-container" id="page-content">
+  <div class="">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-xl-9 col-md-12">
+        <button class="btn btn-success m-b-25" (click)="fixUser()">back</button>
+        <div class="card user-card-full">
+          <div class="row m-l-0 m-r-0">
+            <div class="col-sm-4 bg-c-lite-green user-profile">
+              <div class="card-block text-center text-white">
+                <div class="m-b-25">
+                  <i class="bi bi-person-circle" style="color: black" *ngIf="user.role[0].role=='ADMIN'"></i>
+                  <i class="bi bi-person-fill" style="color: black" *ngIf="user.role[0].role=='SIMPLE'||user.role[0].role=='BLOCKED'"></i>
+                </div>
+                <h6 class="f-w-600">{{user.prenom}} {{user.nom}}</h6>
+                <p>{{user.profession}}</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="card-block">
+                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Email</p>
+                    <h6 class="text-muted f-w-400">{{user.email}}</h6>
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Birth date</p>
+                    <h6 class="text-muted f-w-400">{{user.dateNaissance}}</h6>
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Phone Number</p>
+                    <h6 class="text-muted f-w-400">{{user.phoneNumber}}</h6>
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Categorie user</p>
+                    <h6 class="text-muted f-w-400">{{user.categorieUser}}</h6>
+                  </div>
+                  <div class="col-sm-12 text-center">
+                    <p class="m-b-10 f-w-600">Adresse</p>
+                    <h6 class="text-muted f-w-400">{{user.adresse}}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

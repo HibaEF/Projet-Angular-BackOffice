@@ -1,0 +1,15 @@
+ <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{cartProduct.picture}}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{cartProduct.libelle}}</h5>
+          <p class="card-text">{{cartProduct.description}}</p>
+          <p class="card-text"><small class="text-muted">qte: {{cartProduct.qte}}</small></p>
+        </div>
+      </div>
+    </div>
+    <button (click)="addToCart(cartProduct)"  >buy</button>
+  </div>

@@ -1,0 +1,47 @@
+
+<br>
+<div class="card" style=" width: 18rem; height: 45rem">
+  <img src="{{product.picture}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title   text-uppercase">{{product.libelle}}
+<!--      <div id="action">
+        <button class="btn btn-outline-danger" (click)="deleteNotif()">
+          delete
+        </button>
+        &nbsp;
+        <button class="btn btn-outline-info" (click)="updateNotif()">Update</button>
+      </div>-->
+    </h5>
+    <p class="card-text">{{product.description}}</p>
+    <div class="fs-5 mb-5">
+      <div class="pricingTable">
+
+        <span class="product-price">{{product.prixUnitaire | currency :'USD':true}}</span>
+
+      </div>
+
+    </div>
+<div class="pb-4">
+    <button class=" btn  btn-primary" (click)="notifierParent()">
+      <i class="far fa-heart"></i>
+      like
+    </button><span>{{product.nbrLike}} </span>
+    &nbsp;
+    <button class=" btn btn-outline-dark flex-shrink-0" type="button" style="float: right">
+      <i class="bi-cart-fill me-1"></i>
+      Add to Cart
+    </button>
+    <br><br>
+
+<div class="row">
+    <button class="btn btn-outline-dark flex-shrink-0" type="button" style="float: right"
+    >
+      <i class="bi-cart-fill me-1"></i>
+      Add to Cart
+    </button>
+</div>
+</div>
+  </div>
+</div>
+<!--
+[disabled]="product.s.qte==0"-->

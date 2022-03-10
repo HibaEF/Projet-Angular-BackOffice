@@ -1,0 +1,159 @@
+
+
+<div class="container"><div class=" text-center mt-5 ">
+  <button class="btn btn-success m-b-25" (click)="fixProduct()">Go back</button>
+</div>
+
+
+  <div class="container-fluid px-1 mx-auto">
+    <div class="row d-flex justify-content-center">
+      <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+        <div class="card">
+          <div class="row">
+            <div class="col-2">
+              <a class="btn btn-light text-black" (click)="return()"><i class="bi bi-arrow-left"></i></a>
+            </div>
+            <div class="col-8">
+              <h5 class=" mt-3"> Product informations</h5>
+            </div>
+          </div>
+          <form  id="contact-form" role="form"  #f="ngForm"  >
+            <div class="controls">
+
+                <div class="col-md-12">
+                  <div class="form-group"><label for="code">Code of the Product</label>
+                    <input type="text" name="code" id="code" class="form-control"
+                           [(ngModel)]="produit.code" required minlength="2"  #fp="ngModel" >
+                    <div class="alert alert-info" *ngIf="fp.invalid && fp.touched">
+                      <div *ngIf="fp.hasError('required')"> Code is a required field</div>
+
+                      <div *ngIf="fp.hasError('minlength')"> Code minlength is equal to 2</div>
+                    </div>
+                  </div>
+                </div>
+                  <div class="col-md-12">
+                    <div class="form-group"><label for="libelle">libelle of the Product</label>
+                      <input type="text" name="libelle" id="libelle" class="form-control"
+                             [(ngModel)]="produit.libelle" required minlength="2"  #pb="ngModel" >
+                      <div class="alert alert-info" *ngIf="pb.invalid && pb.touched">
+                        <div *ngIf="pb.hasError('required')"> Libelle is a required field</div>
+                        <div *ngIf="pb.hasError('minlength')"> Libelle minlength ies equal to 2</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="pictures">Picture</label>
+
+                      <input type="file" name="picture" id="pictures" class="form-control"
+                             #np="ngModel" required minlength="3" [(ngModel)]="produit.picture"
+                      >
+                      <div class="alert alert-danger" *ngIf="np.touched&&np.invalid">
+                        <div *ngIf="np.hasError('required')">picture URL required</div>
+                        <div *ngIf="np.hasError('minlength')">picture URL min length is 3</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+
+                    <div class="col-md-6">
+                      <div class="form-group">  <label for="prixUnitaire">prixUnitaire</label>
+                        <input type="number" name="prixUnitaire" id="prixUnitaire" class="form-control"
+                               #nprice="ngModel" required  [(ngModel)]="produit.prixUnitaire">
+
+                        <div class="alert alert-danger" *ngIf="nprice.touched&&nprice.invalid">
+                          <div *ngIf="nprice.hasError('required')">price required</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="pourcentageRemise">Pourcentge Remise:</label>
+                      <input type="number" name="pourcentageRemise" id="pourcentageRemise" class="form-control"
+                             #nprice="ngModel" required  [(ngModel)]="produit.pourcentageRemise">
+                      <div class="alert alert-danger" *ngIf="nprice.touched&&nprice.invalid">
+                        <div *ngIf="nprice.hasError('required')">prourcentage required</div>
+                      </div>
+                    </div>
+                    </div>
+
+                    <!--
+                      <div class="col-md-6">
+                        <label for=" category">Category of the product</label>
+                        <select class="form-select" aria-label="Default select example" id=" category" name="category " #ct="ngModel" [(ngModel)]="produit.detailproduit.CategorieProduit">
+                          <option selected>Category Product</option>
+                          <option value="VESTIMENTAIRE">Vestimentaire</option>
+                          <option value="ALIMENTAIRE">Alimentaire</option>
+                          <option value="ELECTROMENAGER">Electromenager</option>
+                          <option value="QUINCAILLERIE">Quincaillerie</option>
+                        </select>
+                      </div>-->
+                    </div>
+                      <div class="row">
+                    <!--<div class="col-md-12">
+                      <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" name="quantity" id="quantity" class="form-control"
+                               #nq="ngModel" required  [(ngModel)]="produit.s.qte"
+                        >
+                        <div class="alert alert-danger" *ngIf="nq.touched&&nq.invalid">
+                          <div *ngIf="nq.hasError('required')">quantity required</div>
+                        </div>
+                      </div>
+                    </div>-->
+
+
+
+                    </div>
+
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description"  input type="text" name="description"  class="form-control"
+                                                                                                    #nd="ngModel" required minlength="3" [(ngModel)]="produit.description"
+                  ></textarea>
+                  </div>
+                </div>
+              <!--<div class="col-md-12">
+              <div class="form-group col-6 flex-column d-flex">
+
+                    <label class="form-control-label px-3">Start date:<span class="text-danger"> *</span></label>
+
+                    <input type="date" id="dateDerniereModification" name="dateDerniereModification"
+                           [(ngModel)]="produit.detailproduit.dateDerniereModification"
+                           min="2021-01-01" max="2030-12-31">
+              </div>
+              </div>-->
+
+
+
+
+
+
+
+
+
+
+                  <br>
+                  <br>
+                  <button class="btn btn-outline-success " (click)="save()"
+                          [disabled]="f.invalid">
+                    save
+                  </button>
+
+                  &nbsp;&nbsp;
+                  <button class="btn btn-outline-warning" (click)="f.reset()">reset</button>
+                </div>
+            <!--  </div>
+
+            </div>-->
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

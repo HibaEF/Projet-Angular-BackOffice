@@ -1,0 +1,73 @@
+<div class="container">
+  <div class=" text-center mt-5 ">
+
+  </div>
+  <div class="row ">
+    <div class="col-lg-7 mx-auto">
+      <div class="card mt-2 mx-auto p-4 bg-light">
+        <div class="card-body bg-light">
+          <div class="container">
+            <form class="form-card" #f="ngForm">
+              <div class="row justify-content-between text-left">
+                <div class="form-group col-sm-6 flex-column d-flex">
+                  <label class="form-control-label px-3">Nom<span class="text-danger"> *</span></label>
+                  <input type="text" name="nom" id="nom" class="form-control" [(ngModel)]="lvr.nomLiv" required
+                    minlength="3" #fn="ngModel">
+                  <div class="alert alert-danger" *ngIf="fn.invalid && fn.touched">
+                    <div *ngIf="fn.hasError('required')"> Nom is a required field</div>
+                    <div *ngIf="fn.hasError('minlength')"> Nom minlength ies equal to 3</div>
+                  </div>
+                </div>
+                <div class="form-group col-sm-6 flex-column d-flex">
+                  <label class="form-control-label px-3">Prénom<span class="text-danger"> *</span></label>
+                  <input type="text" name="prenom" id="prenom" class="form-control" [(ngModel)]="lvr.prenomLiv" required
+                    minlength="3" #ln="ngModel">
+                  <div class="alert alert-danger" *ngIf="ln.invalid && ln.touched">
+                    <div *ngIf="ln.hasError('required')"> Prénom is a required field</div>
+                    <div *ngIf="ln.hasError('minlength')"> Prénom minlength ies equal to 3</div>
+                  </div>
+                </div>
+                <div class="form-group col-sm-6 flex-column d-flex">
+                  <label class="form-control-label px-3">Ville<span class="text-danger"> *</span></label>
+                  <input type="text" name="ville" id="ville" class="form-control" [(ngModel)]="lvr.villeLiv" required
+                    minlength="3" #fn="ngModel">
+                  <div class="alert alert-danger" *ngIf="fn.invalid && fn.touched">
+                    <div *ngIf="fn.hasError('required')"> Ville is a required field</div>
+                    <div *ngIf="fn.hasError('minlength')"> Ville minlength ies equal to 3</div>
+                  </div>
+                </div>
+
+                <div class="form-group col-sm-6 flex-column d-flex">
+                  <label class="form-control-label px-3">Adresse e-mail<span class="text-danger"> *</span></label>
+                  <input type="email" name="adresse" id="adresse" class="form-control" [(ngModel)]="lvr.adresseLiv"
+                    required minlength="3" #fn="ngModel">
+                  <div class="alert alert-danger" *ngIf="fn.invalid && fn.touched">
+                    <div *ngIf="fn.hasError('required')"> Adresse is a required field</div>
+                    <div *ngIf="fn.hasError('minlength')"> Adresse minlength ies equal to 3</div>
+                  </div>
+
+
+                </div>
+                <div class="form-group col-sm-6 flex-column d-flex">
+                  <label class="form-control-label px-3">Mot de passe<span class="text-danger"> *</span></label>
+
+                  <input type="password" name="mdp" id="mdp" class="form-control" [(ngModel)]="lvr.mdpLiv" required
+                    minlength="3" #mdp="ngModel">
+
+                  <div class="alert alert-danger" *ngIf="mdp.invalid && mdp.touched">
+                    <div *ngIf="mdp.hasError('required')"> Ville is a required field</div>
+                    <div *ngIf="mdp.hasError('minlength')"> Ville minlength ies equal to 3</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row justify-content-end">
+                <div class="form-group col-auto"> <button class="btn-primary" (click)="f.reset()">Reset</button> </div>
+                <div class="form-group col-auto"> <button type="submit" class="btn-primary" (click)="save()"
+                    [disabled]="f.invalid">Register</button> </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>

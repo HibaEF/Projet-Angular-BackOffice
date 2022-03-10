@@ -1,0 +1,52 @@
+
+
+<div class="page-content page-container" id="page-content">
+    <div class="">
+      <div class="row container d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+          <button class="btn btn-success m-b-25" (click)="fixProvider()">Go Back</button>
+          <div class="card user-card-full">
+            <div class="row m-l-0 m-r-0">
+              <div class="col-sm-4 bg-c-lite-green provider-profile">
+                <div class="card-block text-center text-white">
+                  <div class="m-b-25"> <img src="{{provider.logo}}" width="40%" class="img-radius" alt="Provider-Profile-Image"> </div>
+                   </div>
+              </div>
+              <div class="text-center">
+                <div class="card-block">
+                  <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Provider information :</h6>
+ 
+                  <div class="row">
+                    <div class="col-md-2 offset-md-2">
+                      <p class="m-b-10 f-w-600">Name :</p>
+                      <h6 class="f-w-600">{{provider.name}} </h6>
+                    </div>
+                    <div class="col-sm-4 offset-md-2">
+                      <p class="m-b-10 f-w-600">Libelle :</p>
+                      <h6>{{provider.libelle}}</h6> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                
+                    </div>
+
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <p class="m-b-10 f-w-600">Email</p>
+                      <h6 class="text-muted f-w-400">{{provider.email}}</h6>
+                    </div>
+                    <div class="col-sm-4">
+                      <p class="m-b-10 f-w-600">Code</p>
+                      <h6 class="text-muted f-w-400">{{provider.code}}</h6>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="m-b-10 f-w-600">Adresse</p>
+                        <h6 class="text-muted f-w-400">{{provider.adresse}}</h6>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

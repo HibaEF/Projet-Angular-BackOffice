@@ -1,0 +1,100 @@
+
+<div *ngIf="cartItems.length < 1"  class="container-fluid mt-100">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Cart</h5>
+                </div>
+                <div class="card-body cart">
+                    <div class="col-sm-12 empty-cart-cls text-center"> <img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3">
+                        <h3><strong>Your Cart is Empty</strong></h3>
+                        <h4>Add something to make me happy :)</h4> <a href="#" class="btn btn-primary cart-btn-transform m-3" data-abc="true">continue shopping</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div *ngIf="cartItems.length > 0" class="container-fluid">
+        <div class="row">
+            <aside class="col-lg-9">
+                <div class="card">
+                    <div class="table-responsive">
+                        <table class="table table-borderless table-shopping-cart">
+                            <thead class="text-muted">
+                                <tr class="small text-uppercase">
+                                    <th scope="col">Product</th>
+                                    <th scope="col" width="120">Quantity</th>
+                                    <th scope="col" width="120">Price</th>
+                                    <th scope="col" class="text-right d-none d-md-block" width="200"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of cartItems ; let i = index"  >
+                                    <td>
+                                        <figure class="itemside align-items-center">
+                                            <div class="aside"><img src="{{item.picture}}" class="img-sm"></div>
+                                            <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true">{{item.libelle}}</a>
+                                                <p class="text-muted small">SIZE: L <br> code: {{item.code}}</p>
+                                            </figcaption>
+                                        </figure>
+                                    </td>
+                                    <td> 
+                                        <input type="number" 
+                                        class="form-control" 
+                                        [value]="item.qte"
+                                        (blur)="validateInput($event,i)">
+                                            
+                                     </td>
+                                    <td>
+                                        <div class="price-wrap"> 
+                                            <var class="price">${{item.prixUnitaire * item.qte}}</var> 
+                                            <del *ngIf="item.pourcentageRemise > 0" class="cross " style="color: #F1948A;">${{ item.prixUnitaire }}</del> 
+                                            <small class="text-muted" > ${{((100 -item.pourcentageRemise) *item.prixUnitaire )/100  }} each </small> 
+                                        </div>
+                                        
+
+                                    </td>
+                                    <td class="text-right d-none d-md-block"><!-- <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light" data-toggle="tooltip" data-abc="true"> <i class="fa fa-heart"></i></a> --> <a (click)="onDelete(i)" class="btn btn-light" data-abc="true"> Remove</a> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </aside>
+            <aside class="col-lg-3">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group"> <label>Have coupon?</label>
+                                <div class="input-group"> <input type="text" class="form-control coupon" name="" placeholder="Coupon code"> <span class="input-group-append"> <button class="btn btn-primary btn-apply coupon">Apply</button> </span> </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <dl class="dlist-align">
+                            <dt>Total price:</dt>
+                            <dd class="text-right ml-3">${{total}}</dd>
+                        </dl>
+                        <dl class="dlist-align">
+                            <dt>Discount:</dt>
+                            <dd class="text-right text-danger ml-3">- ${{discount}}</dd>
+                        </dl>
+                        <dl class="dlist-align">
+                            <dt>Total:</dt>
+                            <dd class="text-right text-dark b ml-3"><strong>${{total-discount}}</strong></dd>
+                        </dl>
+                
+                        <hr> <button  (click)="generateFacture()" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Make Purchase </button > <a href="#" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    

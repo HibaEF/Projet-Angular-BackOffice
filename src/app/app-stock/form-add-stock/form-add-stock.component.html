@@ -1,0 +1,84 @@
+
+<div class="container-fluid px-1 py-2 mx-auto">
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+      <button class="btn btn-success" (click)="return()">Go Back</button>
+      <div class="card">
+        <h5 class="text-center mb-4">Welcome</h5>
+
+        <form class="form-card" #f="ngForm">
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">Id Stock<span class="text-danger"> *</span></label>
+              <input type="number" name="number"  id="fname" class="form-control" [(ngModel)]="stock.id" required  #fn="ngModel">
+              <div class="alert alert-danger" *ngIf="fn.invalid && fn.touched">
+                <div *ngIf="fn.hasError('required')"> id Stock is a required field</div>
+           
+              </div>
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">Name <span class="text-danger"> *</span></label>
+              <input type="text" id="text" name="text" [(ngModel)]="stock.name" required   #ln="ngModel">
+              <div class="alert alert-danger" *ngIf="ln.invalid && ln.touched">
+                <div *ngIf="ln.hasError('required')"> Name is a required field</div>
+          
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">Quantité <span class="text-danger"> *</span></label>
+              <input type="number" id="quantite" name="quantite" [(ngModel)]="stock.qte" required   #ln="ngModel">
+              <div class="alert alert-danger" *ngIf="ln.invalid && ln.touched">
+                <div *ngIf="ln.hasError('required')"> Quantité is a required field</div>
+          
+              </div>
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">Quantité Min<span class="text-danger"> *</span></label>
+              <input type="number" id="qtemin" name="qtemin" [(ngModel)]="stock.qteMin"  required #em="ngModel">
+              <div class="alert alert-danger" *ngIf="em.invalid && em.touched">
+                <div *ngIf="em.hasError('required')"> Quantité Min is a required field</div>
+               
+              </div>
+            </div>
+
+            
+           
+          </div>
+
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">Libelle<span class="text-danger"> *</span></label>
+              <input type="text" id="libelle" name="libelle" [(ngModel)]="stock.libelleStock" required minlength="2"  #jb="ngModel" >
+              <div class="alert alert-danger" *ngIf="jb.invalid && jb.touched">
+                <div *ngIf="jb.hasError('required')"> Libelle is a required field</div>
+                <div *ngIf="jb.hasError('minlength')"> Libelle minlength ies equal to 2</div>
+              </div>
+            </div>
+            <div class="form-group col-6 flex-column d-flex">
+              <label class="form-control-label px-3">Logo URL</label>
+              <input type="text" id="picture" name="picture" [(ngModel)]="stock.logo">
+            </div>
+            <div class="form-group col-6 flex-column d-flex">
+              <label class="form-control-label px-3">Date:<span class="text-danger"> *</span></label>
+  
+                      <input type="date" id="dateS" name="trip-start"
+                             [(ngModel)]="stock.date"
+                          
+                             min="2020-01-01" max="2030-12-31">
+                             </div>
+          </div>
+          
+          
+          
+          <div class="row justify-content-end">
+            <div class="form-group col-auto"> <button  class="btn-primary" (click)="f.reset()">Reset</button> </div>
+            <div class="form-group col-auto"> <button type="submit" class="btn-primary" (click)="save()"  [disabled]="f.invalid">Register</button> </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

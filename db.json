@@ -1,0 +1,243 @@
+{
+  "product": [
+    {
+      "title": "test",
+      "description": "test",
+      "quantity": 55,
+      "price": 1233,
+      "picture": "assets/femme.jpeg",
+      "nbrLike": 0,
+      "id": 13,
+      "category": "Vestimentaire"
+    },
+    {
+      "picture": "assets/regentlogo.jpg",
+      "title": "new",
+      "quantity": 7,
+      "price": 88,
+      "description": "new newxcf vbvb",
+      "nbrLike": 0,
+      "id": 18,
+      "category": "Vestimentaire"
+    },
+    {
+      "title": "okujh",
+      "picture": "assets/10034515C255_81_G.jpg",
+      "quantity": 20,
+      "price": 33,
+      "description": "aqqd dvsvs c dvs  xvsxv g gn",
+      "nbrLike": 0,
+      "id": 19,
+      "category": "Vestimentaire"
+    },
+    {
+      "title": "women t shirt",
+      "picture": "assets/10034595C056_83_G.jpg",
+      "quantity": 1,
+      "price": 100,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam itaque quas modi sunt aspernatur assumenda autem pariatur!",
+      "nbrLike": 0,
+      "id": 20,
+      "category": "Vestimentaire"
+    },
+    {
+      "title": "ons mozza",
+      "picture": "assets/femme.jpeg",
+      "quantity": 7,
+      "price": 22,
+      "description": "jkhgfg",
+      "id": 22
+    },
+    {
+      "title": "aaaaaaaaaaaa",
+      "picture": "assets/femme.jpeg",
+      "quantity": 1,
+      "price": 12,
+      "description": "nhjhbhbu",
+      "id": 24,
+      "category": "Alimentaire"
+    },
+    {
+      "title": "hiba",
+      "picture": "assets/pc-gamer-rayzen-5.jpg",
+      "quantity": 8,
+      "price": 123,
+      "category": "Electromenager",
+      "description": "aaaaaaaaaaaaaa",
+      "nbrLike": 0,
+      "id": 25
+    }
+  ],
+  "provider": [
+    {
+      "id": "1",
+      "name": "Dell",
+      "code": "F-1970",
+      "libelle": "PC",
+      "adresse": "Kef",
+      "logo": "/assets/dell.png",
+      "email": "dell@gmail.com"
+    },
+    {
+      "id": "2",
+      "code": "F-1978",
+      "name": "Samsung",
+      "libelle": "TV",
+      "adresse": "Ariana",
+      "logo": "/assets/samsung.png",
+      "email": "samsung@gmail.com"
+    },
+    {
+      "id": "3",
+      "code": "F-1985",
+      "name": "Sotufab",
+      "libelle": "ons",
+      "adresse": "Monastir",
+      "logo": "/assets/sotufab.png",
+      "email": "sotufab@gmail.com"
+    }
+  ],
+  "users": [
+    {
+      "id": 5,
+      "firstName": "Robert",
+      "lastName": "Downey",
+      "birthDate": "05-03-2002",
+      "accountCategory": "Blocked Account",
+      "email": "robert@nicholson.com",
+      "password": "test",
+      "picture": "https://bootdey.com/img/Content/avatar/avatar5.png",
+      "profession": "Software Engineer"
+    }
+  ],
+  "livreurs": [
+    {
+      "idLiv": 1,
+      "NomLiv": "Ahmed",
+      "PrenomLiv": "Chebbi",
+      "VilleLiv": "Tunis",
+      "AdresseLiv": "ahmed@esprit.tn",
+      "MdpLiv": "UIH",
+      "LngLiv": 223.55,
+      "LatLiv": 55.22
+    }
+  ],
+  "livreur": [
+    {
+      "NomLiv": "kjze",
+      "PrenomLiv": "ezij",
+      "VilleLiv": "eezez",
+      "AdresseLiv": "ezeeezez",
+      "id": 1
+    },
+    {
+      "NomLiv": "the champion of angularrrrr",
+      "PrenomLiv": "erre",
+      "VilleLiv": "errerere",
+      "AdresseLiv": "ezezezez",
+      "id": 2
+    },
+    {
+      "NomLiv": "sqsqqs",
+      "AdresseLiv": "sqqssq",
+      "VilleLiv": "sqsqsq",
+      "PrenomLiv": "sqsqqsqs",
+      "id": 3
+    },
+    {
+      "NomLiv": "khlifi",
+      "PrenomLiv": "Mohamed Sahbi",
+      "VilleLiv": "Borj Cedria",
+      "AdresseLiv": "mohamedsahbi.khlifi@esprit.tn",
+      "id": 4
+    },
+    {
+      "NomLiv": "jkzejkjezjkjkdeez",
+      "PrenomLiv": "ezezezez",
+      "VilleLiv": "ezkjjkez",
+      "AdresseLiv": "ezedzez",
+      "MdpLiv": "ezezezez",
+      "id": 5
+    }
+  ],
+  "Panier": [
+    {
+      "idPanier": 1,
+      "prixTotal": "45",
+      "nombreArticle": "3",
+      "montantRemise": "3"
+    },
+    {
+      "idPanier": 2,
+      "prixTotal": "45",
+      "nombreArticle": "3",
+      "montantRemise": "3"
+    },
+    {
+      "idPanier": 3,
+      "prixTotal": "45",
+      "nombreArticle": "3",
+      "montantRemise": "3"
+    },
+    {
+      "idPanier": 4,
+      "prixTotal": "45",
+      "nombreArticle": "3",
+      "montantRemise": "3"
+    },
+    {
+      "idPanier": 5,
+      "prixTotal": "45",
+      "nombreArticle": "3",
+      "montantRemise": "3"
+    }
+  ],
+  "Stocks": [
+    {
+      "id": "1",
+      "name": "Zara",
+      "qte": 10,
+      "qteMin": 5,
+      "libelleStock": "Robe",
+      "logo": "/assets/zara.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Sephora",
+      "qte": 45,
+      "qteMin": 10,
+      "libelleStock": "rouge à levre",
+      "logo": "/assets/sephora.jpg"
+    },
+    {
+      "id": "3",
+      "name": "J'adore",
+      "qte": 25,
+      "qteMin": 5,
+      "libelleStock": "parfum",
+      "logo": "/assets/jadore.png"
+    },
+    {
+      "id": 4,
+      "name": "Guess",
+      "qte": 10,
+      "qteMin": 2,
+      "libelleStock": "ceinture",
+      "logo": "assets/guess.jpg"
+    }
+  ],
+  "livraison": [
+    {
+      "id": 1,
+      "dateLivraisonDate": "2021-12-28",
+      "adresseLvr": "tunis",
+      "status": false
+    },
+    {
+      "dateLivraisonDate": "2021-12-10",
+      "adresseLvr": "vfdfdfdfd",
+      "status": false,
+      "id": 5
+    }
+  ]
+}

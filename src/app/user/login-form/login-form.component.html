@@ -1,0 +1,29 @@
+
+<div class="container mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+      <div class="card px-5 py-5" id="form1">
+        <form class="form-data" #f="ngForm">
+          <div class="forms-inputs mb-4"> <span>Email </span>
+            <input  type="text"  class="form-control" [(ngModel)]="userModel.email" id="email" name="email"  required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" #em="ngModel">
+            <div class="alert alert-danger" *ngIf="em.invalid && em.touched">
+              <div *ngIf="em.hasError('required')"> email is a required field</div>
+              <div *ngIf="em.hasError('pattern')"> respect this format test@gmail.com</div>
+            </div>
+          </div>
+          <div class="forms-inputs mb-4"> <span>Password</span>
+            <input  type="password" class="form-control" id="pass" name="pass" [(ngModel)]="userModel.password" required  #pw="ngModel">
+            <div class="alert alert-danger" *ngIf="pw.invalid && pw.touched">
+              <div *ngIf="pw.hasError('required')"> password is a required field</div>
+            </div>
+          </div>
+          <div class="mb-3"> <button  class="btn btn-primary w-100" [disabled]="f.invalid" (click)="Authenticate()">Login</button> </div>
+          <p class="text-center">Not a member? <a data-toggle="tab" [routerLink]="['/add-user','add-simple']">Register</a></p>
+          <div class="alert alert-danger" *ngIf="msg!=''">
+            <div>{{msg}}</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

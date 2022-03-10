@@ -1,0 +1,98 @@
+
+
+<div class="page-content page-container" id="page-content">
+    <div class="">
+      <div class="row container d-flex justify-content-center">
+        <div class="col-xl-9 col-md-12">
+          <button class="btn btn-success m-b-25" [routerLink]="['/livreur']">back</button>
+          <div class="card user-card-full">
+            <div class="row m-l-0 m-r-0">
+              <div class="col-sm-4 bg-c-lite-green provider-profile">
+                <div class="card-block text-center text-white">
+                  <div class="m-b-25"> <img src="assets/admin.png" width="40%" class="img-radius" alt="Stock-Profile-Image"> </div>
+                  
+                  <h6 class="f-w-600">{{livreur.id}} </h6>
+                  
+                  <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"><h5>{{livreur.nomLiv}}</h5> </i>
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <div class="card-block">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <p class="m-b-10 f-w-600">Adresse e-mail</p>
+                      <h6 class="text-muted f-w-400">{{livreur.adresseLiv}}</h6>
+                    </div>
+                    <div class="col-sm-6">
+                      <p class="m-b-10 f-w-600">Ville du livreur</p>
+                      <h6 class="text-muted f-w-400">{{livreur.villeLiv}}</h6>
+                    </div>
+                
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+
+<div class="container"><div class=" text-center mt-5 ">
+
+<div class="tablelivraison">           
+  La liste des livraison de ce livreur 
+  <div class="table-responsive">
+    <table class="table table-responsive table-striped table-hover table-bordered">
+      <thead>
+      <tr class="bg-light">
+        <th scope="col" >Id livraison</th>
+        <th scope="col" >Date de livraison</th>
+        <th scope="col" >Adresse de livraison</th>
+        <th scope="col" >Statut de la livraison</th>
+    
+      </tr>
+      
+      </thead>
+      <tbody>
+        <tr *ngFor="let listLivraison of Livraison">
+          <td>{{listLivraison.id}}</td>
+          <td>{{listLivraison.dateLivraisonDate}}</td>
+          <td>{{listLivraison.adresseLvr}}</td>
+            <td *ngIf="!listLivraison.status">
+              <span>
+              <i class="bg-warning">En cours</i> 
+            </span>
+          </td>
+          <td *ngIf="listLivraison.status==1">
+            <span>
+              <i class="bg-success">Deliveé</i> 
+            </span>         
+           </td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+           
+   
+</div>
+<div class="container"><div class=" text-center mt-5 ">
+
+</div>
+   
+
+          </div>
+        </div>
+
+
+<div class="container"><div class=" text-center mt-5 ">
+
+
+
+
+           
+  

@@ -1,0 +1,123 @@
+
+<div class="container-fluid px-1 mx-auto">
+  <div class="row d-flex justify-content-center">
+    <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+      <div class="card">
+        <div class="row">
+          <div class="col-2">
+            <a class="btn btn-light text-black" [routerLink]="'/show-all-user'"  *ngIf="status_add=='add-admin'"><i class="bi bi-arrow-left"></i></a>
+          </div>
+          <div class="col-8">
+            <h5 class=" mt-3" *ngIf="status_add=='add-admin'">Adding An Admin User </h5>
+            <h5 class=" mt-3" *ngIf="status_add=='add-simple'">Register</h5>
+          </div>
+        </div>
+        <form class="form-card" #f="ngForm">
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">First name<span class="text-danger"> *</span></label>
+              <input type="text" name="fname"  id="fname"  [(ngModel)]="user.nom" required minlength="3"  #fn="ngModel">
+              <div class="alert alert-danger" *ngIf="fn.invalid && fn.touched">
+                <div *ngIf="fn.hasError('required')"> first name is a required field</div>
+                <div *ngIf="fn.hasError('minlength')"> first name minlength ies equal to 3</div>
+              </div>
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">Last name<span class="text-danger"> *</span></label>
+              <input type="text" id="lname" name="lname" [(ngModel)]="user.prenom" required minlength="3"  #ln="ngModel">
+              <div class="alert alert-danger" *ngIf="ln.invalid && ln.touched">
+                <div *ngIf="ln.hasError('required')"> last name is a required field</div>
+                <div *ngIf="ln.hasError('minlength')"> last name minlength ies equal to 3</div>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">email<span class="text-danger"> *</span></label>
+              <div class="input-group">
+              <input type="text" id="email" name="email" [(ngModel)]="user.email"  required pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" #em="ngModel">
+              <button class="btn-sm btn-success " (click)="TestEmail(user.email)" [disabled]="em.invalid" ><i class="bi bi-check2"></i></button>
+              </div>
+              <div class="alert alert-danger" *ngIf="em.invalid && em.touched">
+                <div *ngIf="em.hasError('required')"> email is a required field</div>
+                <div *ngIf="em.hasError('pattern')"> respect this format test@gmail.com</div>
+              </div>
+              <div class="alert alert-danger" *ngIf="test_email=='existe'">this email already exists wanna <a [routerLink]="'/login'" >Login</a></div>
+              <div class="alert alert-success" *ngIf="test_email=='existe pas'">this email doesn't exists</div>
+            </div>
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3">password<span class="text-danger"> *</span></label>
+              <input type="password" id="pass" name="pass" [(ngModel)]="user.password" required  #pw="ngModel" >
+              <div class="alert alert-danger" *ngIf="pw.invalid && pw.touched">
+                <div *ngIf="pw.hasError('required')"> password is a required field</div>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-sm-6 flex-column d-flex" *ngIf="status_add=='add-simple'">
+              <label class="form-control-label px-3">Job<span class="text-danger"> *</span></label>
+              <!--<input type="text" id="job" name="job" [(ngModel)]="user.profession" required   #jb="ngModel" >-->
+              <select class="form-select" id="job" name="job" [(ngModel)]="user.profession" required   #jb="ngModel" >
+                <option value="Docteur">Docteur</option>
+                <option value="Ingenieur">Ingenieur</option>
+                <option value="Etudiant">Etudiant</option>
+                <option value="Commercial">Commercial</option>
+                <option value="Cadre">Cadre</option>
+                <option value="Autre">Autre...</option>
+              </select>
+              <div class="alert alert-danger" *ngIf="jb.invalid && jb.touched">
+                <div *ngIf="jb.hasError('required')"> job title is a required field</div>
+              </div>
+            </div>
+            <div class="form-group col-6 flex-column d-flex">
+              <label class="form-control-label px-3">picture </label>
+              <input type="file" id="picture" name="picture" [(ngModel)]="user.picture" >
+            </div>
+          </div>
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-6 flex-column d-flex">
+              <label class="form-control-label px-3">Addresse<span class="text-danger">*</span></label>
+              <input type="text" id="adresse" name="adr"  [(ngModel)]="user.adresse" required  #adr="ngModel">
+              <div class="alert alert-danger" *ngIf="adr.invalid && adr.touched">
+                <div *ngIf="adr.hasError('required')"> Address is a required field</div>
+              </div>
+            </div>
+            <div class="form-group col-6 flex-column d-flex">
+              <label class="form-control-label px-3">Phone number<span class="text-danger">*</span></label>
+              <input type="number" id="phone_number" name="phone_number"  [(ngModel)]="user.phoneNumber" required  #phn="ngModel" >
+              <div class="alert alert-danger" *ngIf="phn.invalid && phn.touched">
+                <div *ngIf="phn.hasError('required')"> Phone number is a required field</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-between text-left">
+            <div class="form-group col-12 flex-column d-flex">
+              <label class="form-control-label px-3">Date of Birth<span class="text-danger"> *</span></label>
+              <input type="date" id="dob" name="dob"  [(ngModel)]="user.dateNaissance" required  #dob="ngModel">
+              <div class="alert alert-danger" *ngIf="dob.invalid && dob.touched">
+                <div *ngIf="dob.hasError('required')"> Date of birth is a required field</div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="row justify-content-between text-left">
+             <div class="form-group col-12 flex-column d-flex">
+               <label class="form-control-label px-3">Role<span class="text-danger"> *</span></label>
+               &lt;!&ndash;<input type="text" id="role" name="role"  [(ngModel)]="user.role" required  #role="ngModel">&ndash;&gt;
+               <input  type="text" name="role" id="role" required [(ngModel)]="user.role" #role="ngModel">
+               <div class="alert alert-danger" *ngIf="role.invalid && role.touched">
+                 <div *ngIf="role.hasError('required')"> Role is a required field</div>
+               </div>
+             </div>
+           </div>-->
+          <div class="row justify-content-end">
+            <div class="form-group col-auto">
+              <button type="submit" class="btn-primary" (click)="save_Admin()"  [disabled]="f.invalid" *ngIf="status_add=='add-admin'">Register</button>
+              <button type="submit" class="btn-primary" (click)="save_Simple()"  [disabled]="f.invalid" *ngIf="status_add=='add-simple'">Register</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

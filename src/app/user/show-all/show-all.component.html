@@ -1,0 +1,12 @@
+<div class="container mt-2 ">
+  <!--<div class="mb-2 d-flex justify-content-between align-items-center">
+    <button class="btn btn-success" (click)="AddUSer()">Add User</button>
+  </div>-->
+  <div class="btn-group-lg text-center mb-2" role="group" >
+    <button type="button" class="btn btn-primary" (click)="TargetAll()">All User</button>
+    <button type="button" class="btn btn-primary" (click)="TargetSimpleUser()">Simple Users</button>
+    <button type="button" class="btn btn-primary" (click)="TargetAdminUser()">Administration User</button>
+  </div>
+</div>
+<app-show [listOfUsers]="new_list" [role]="role" (DeleteEvent)="delete($event)" ></app-show>
+
